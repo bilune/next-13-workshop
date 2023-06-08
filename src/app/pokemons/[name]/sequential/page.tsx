@@ -7,15 +7,17 @@ async function getPokemon(name: string) {
   return res.json();
 }
 
-async function getPokemonLocations(name: string) {
+async function getPokemonLocations(id: number) {
   const res = await fetch(
-    `https://pokeapi.co/api/v2/pokemon/${name}/encounters`
+    `https://pokeapi.co/api/v2/pokemon/${id}/encounters`
   );
-  // await new Promise((res) => {
-  //   setTimeout(res, 10000);
-  // });
 
-  throw new Error("Falló");
+  await new Promise((res) => {
+    setTimeout(res, 1000);
+  });
+
+  // throw new Error("Falló");
+
   return res.json();
 }
 
@@ -24,12 +26,8 @@ export default async function Page({
 }: {
   params: { name: string };
 }) {
-  // Initiate both requests in parallel
-  const pokemonData = getPokemon(name);
-  const pokemonLocationData = getPokemonLocations(name);
-
-  // Wait for the artist's promise to resolve first
-  const pokemon = await pokemonData;
+  // Waits for Pokemon to load.
+  const pokemon = await getPokemon(name);
 
   return (
     <>
@@ -47,22 +45,22 @@ export default async function Page({
       </ul>
 
       <br />
-      {/* Send the artist information first,
-          and wrap albums in a suspense boundary */}
-      <ErrorBoundary fallback={<div>Fallooooo</div>}>
+      {/* Send the Pokemon information first,
+          and wrap PokemonLocations in a suspense boundary */}
+      <ErrorBoundary fallback={<div>Could not load Pokemon Location</div>}>
         <Suspense fallback={<div>Loading Pokemon locations...</div>}>
           {/* @ts-expect-error Server Component */}
-          <PokemonLocations promise={pokemonLocationData} />
+          <PokemonLocations pokemonId={pokemon.id} />
         </Suspense>
       </ErrorBoundary>
     </>
   );
 }
 
-// Albums Component
-async function PokemonLocations({ promise }: { promise: Promise<any> }) {
-  // Wait for the albums promise to resolve
-  const pokemonLocations = await promise;
+// PokemonLocations Component
+async function PokemonLocations({ pokemonId }: { pokemonId: number }) {
+  // Wait for the Pokemon Locations promise to resolve
+  const pokemonLocations = await getPokemonLocations(pokemonId);
 
   return (
     <>

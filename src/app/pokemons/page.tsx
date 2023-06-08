@@ -6,10 +6,7 @@ interface Pokemon {
 }
 
 async function getPokemons(): Promise<Pokemon[]> {
-  const res = await fetch("https://pokeapi.co/api/v2/pokemon?limit=10'", {
-    // next: { revalidate: 60 },
-    cache: "no-store",
-  });
+  const res = await fetch("https://pokeapi.co/api/v2/pokemon?limit=10'");
   // The return value is *not* serialized
   // You can return Date, Map, Set, etc.
 

@@ -8,9 +8,10 @@ async function getPokemonLocations(name: string) {
   const res = await fetch(
     `https://pokeapi.co/api/v2/pokemon/${name}/encounters`
   );
-  await new Promise((res) => {
-    setTimeout(res, 10000);
-  });
+
+  // await new Promise((res) => {
+  //   setTimeout(res, 10000);
+  // });
 
   return res.json();
 }
