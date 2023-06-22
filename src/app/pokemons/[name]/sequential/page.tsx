@@ -8,9 +8,7 @@ async function getPokemon(name: string) {
 }
 
 async function getPokemonLocations(id: number) {
-  const res = await fetch(
-    `https://pokeapi.co/api/v2/pokemon/${id}/encounters`
-  );
+  const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}/encounters`);
 
   await new Promise((res) => {
     setTimeout(res, 1000);
@@ -49,7 +47,6 @@ export default async function Page({
           and wrap PokemonLocations in a suspense boundary */}
       <ErrorBoundary fallback={<div>Could not load Pokemon Location</div>}>
         <Suspense fallback={<div>Loading Pokemon locations...</div>}>
-          {/* @ts-expect-error Server Component */}
           <PokemonLocations pokemonId={pokemon.id} />
         </Suspense>
       </ErrorBoundary>

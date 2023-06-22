@@ -51,7 +51,6 @@ export default async function Page({
           and wrap albums in a suspense boundary */}
       <ErrorBoundary fallback={<div>Fallooooo</div>}>
         <Suspense fallback={<div>Loading Pokemon locations...</div>}>
-          {/* @ts-expect-error Server Component */}
           <PokemonLocations promise={pokemonLocationData} />
         </Suspense>
       </ErrorBoundary>
