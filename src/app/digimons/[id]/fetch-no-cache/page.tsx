@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 
-import getDigimonFetchNoCache from "@/utils/getDigimonFetchNoCache";
+import getDigimonFetchNoCache from "@/utils/digimon/getDigimonFetchNoCache";
 
 export default async function Page({
   params: { id },

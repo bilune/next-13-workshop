@@ -1,4 +1,4 @@
-import getDigimonAxios from "@/utils/getDigimonAxios";
+import getDigimonAxios from "@/utils/digimon/getDigimonAxios";
 import { ReactNode } from "react";
 
 export default async function DigimonLayout({

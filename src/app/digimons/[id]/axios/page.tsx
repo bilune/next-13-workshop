@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 
-import getDigimonAxios from "@/utils/getDigimonAxios";
+import getDigimonAxios from "@/utils/digimon/getDigimonAxios";
 
 export default async function Page({
   params: { id },

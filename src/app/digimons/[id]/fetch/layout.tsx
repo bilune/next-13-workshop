@@ -1,4 +1,4 @@
-import getDigimonFetch from "@/utils/getDigimonFetch";
+import getDigimonFetch from "@/utils/digimon/getDigimonFetch";
 import { ReactNode } from "react";
 
 export default async function DigimonLayout({

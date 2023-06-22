@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
-import getDigimonFetchRevalidate from "@/utils/getDigimonFetchRevalidate";
+
+import getDigimonFetchRevalidate from "@/utils/digimon/getDigimonFetchRevalidate";
 
 export default async function Page({
   params: { id },

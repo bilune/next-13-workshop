@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
-import getDigimonFetch from "@/utils/getDigimonFetch";
+
+import getDigimonFetch from "@/utils/digimon/getDigimonFetch";
 
 export const preload = (id: number) => {
   // void evaluates the given expression and returns undefined
